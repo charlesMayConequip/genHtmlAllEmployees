@@ -8,6 +8,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
+from slugify import slugify
 
 common_proxy = xmlrpclib.ServerProxy(url+'common')
 object_proxy = xmlrpclib.ServerProxy(url+'object')
@@ -65,6 +66,7 @@ for person in allData:
         myHtml.append(f'<h6 class="above-heading">{person["job_title"]}</h6>')
         myHtml.append(f'<h3 class="blu">{person["name"]}</h3>')
         myHtml.append(f'<a href="tel:{person["work_phone"]}">{person["work_phone"]}</a>')
+        myHtml.append(f'<a class="go" href="{{store url="{slugify(person["name"])}"}}">More about {person["name"]}</a>')
         myHtml.append('</div>')
         counter += 1
 myHtml.append('</div>')
