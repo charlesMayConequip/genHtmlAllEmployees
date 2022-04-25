@@ -316,8 +316,8 @@ for idx, file in enumerate(mail_attachment):
         mimefile.add_header('Content-Disposition', "attachment; filename= %s" % mail_attachment_name[idx])
         mimemsg.attach(mimefile)
 
-# connection = smtplib.SMTP(host='smtp.office365.com', port=587)
-# connection.starttls()
-# connection.login(email_username, email_password)
-# connection.send_message(mimemsg)
-# connection.quit()
+connection = smtplib.SMTP(host='smtp.office365.com', port=587)
+connection.starttls()
+connection.login(email_username, email_password)
+connection.send_message(mimemsg)
+connection.quit()
