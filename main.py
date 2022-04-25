@@ -50,7 +50,7 @@ for department in allData:
 print(departments)
 
 # GENERATE HTML CODE
-myHtml.append('<p>At ConEquip, we are proud of the team that we have put together. We strive to be sure that our parts specialists arealways available tolocate the heavy equipment parts that you need. To meet our customer needs, we have teams that are here to handleyour parts requests.Whether it is our fantastic office manager, a parts specialist, or a sales assistant, everyone at ConEquip is welltrained and ready tomeet your needs and exceed your expectations. With former operators on staff, we have a unique understanding of yourequipment that youwon"t find with everyone in the parts industry.</p><div class="divider">&nbsp;</div><div class="text-center pb-5"><h2 class="red">We Are Hiring!</h2><h5>Are you looking for a career in the construction equipment parts business? Contact us today.</h5><h2><a href="{{store url="employment/"}}" class="p-4"><u>Jobs at ConEquip</u></a></h2></div><div class="col-12 col-sm-6"><h2 class="section-title pt-5">Partners</h2><hr /></div><!-- START 3 COLUMN GRID FOUNDERS--><div class="row ctr pt-5"><div class="col-4"> <a href="{{store url="al-alexander"}}"><img class="fade-on-hover border marg10 img-dshadow"src="{{media url="wysiwyg/conequip/employees/al.jpg"}}" alt="Albert Alexander" /></a><h6 class="above-heading ">President / Partner</h6><h3 class="blu">Albert Alexander</h3><p class="d-none d-sm-block">Al is the co-founder of ConEquip and is the friendly voice that many of you areusedto. Al started ConEquip with his business partner Ben and in 2008 and it has been growing ever since.</p><a class="go" href="{{store url="al-alexander"}}">More about Al</a> </div><div class="col-4"> <a href="{{store url="ben-krentz"}}"><img class="fade-on-hover border marg10 img-dshadow"src="{{media url="wysiwyg/conequip/employees/ben.jpg"}}" alt="Ben Krentz - ConEquip" /></a><h6 class="above-heading">Vice-President / Partner</h6><h3 class="blu">Ben Krentz</h3><p class="d-none d-sm-block">Ben Krentz, Co-owner and Sales Manager here at ConEquip Parts. We started thiscompanyin 2008 and have great plans in store for the future...</p><a class="go" href="{{store url="ben-krentz"}}">More about Ben</a> </div><div class="col-4"> <a href="{{store url="ryan-loos"}}"><img class="fade-on-hover border marg10 img-dshadow"src="{{media url="wysiwyg/conequip/employees/ryan.jpg"}}" alt="Ryan Loos - CFO at ConEquip Parts" /></a><h6 class="above-heading ">Chief Financial Officer / Partner</h6><h3 class="blu">Ryan Loos</h3><p class="d-none d-sm-block">Ryan Loos is the CFO at ConEquip Parts. Many in WNY already know Ryan from hisaccounting practice. Ryan brings awealth of accounting and business knowledge to ConEquip.</p><a class="go" href="{{store url="ryan-loos"}}">More about Ryan</a> </div></div>')
+myHtml.append('<p>At ConEquip, we are proud of the team that we have put together. We strive to be sure that our parts specialists arealways available tolocate the heavy equipment parts that you need. To meet our customer needs, we have teams that are here to handleyour parts requests.Whether it is our fantastic office manager, a parts specialist, or a sales assistant, everyone at ConEquip is welltrained and ready tomeet your needs and exceed your expectations. With former operators on staff, we have a unique understanding of yourequipment that youwon"t find with everyone in the parts industry.</p><div class="divider">&nbsp;</div><div class="text-center pb-5"><h2 class="red">We Are Hiring!</h2><h5>Are you looking for a career in the construction equipment parts business? Contact us today.</h5><h2><a href="{{store url="employment/"}}" class="p-4"><u>Jobs at ConEquip</u></a></h2></div><div class="col-12 col-sm-6"><h2 class="section-title pt-5">Partners</h2><hr /></div><!-- START 3 COLUMN GRID FOUNDERS--><div class="row ctr pt-5"><div class="col-4"> <a href="{{store url="al-alexander"}}"><img class="fade-on-hover border marg10 img-dshadow" src="{{media url="wysiwyg/conequip/employees/al.jpg"}}" alt="Albert Alexander" /></a><h6 class="above-heading ">President / Partner</h6><h3 class="blu">Albert Alexander</h3><p class="d-none d-sm-block">Al is the co-founder of ConEquip and is the friendly voice that many of you areusedto. Al started ConEquip with his business partner Ben and in 2008 and it has been growing ever since.</p><a class="go" href="{{store url="al-alexander"}}">More about Al</a> </div><div class="col-4"> <a href="{{store url="ben-krentz"}}"><img class="fade-on-hover border marg10 img-dshadow" src="{{media url="wysiwyg/conequip/employees/ben.jpg"}}" alt="Ben Krentz - ConEquip" /></a><h6 class="above-heading">Vice-President / Partner</h6><h3 class="blu">Ben Krentz</h3><p class="d-none d-sm-block">Ben Krentz, Co-owner and Sales Manager here at ConEquip Parts. We started thiscompanyin 2008 and have great plans in store for the future...</p><a class="go" href="{{store url="ben-krentz"}}">More about Ben</a> </div><div class="col-4"> <a href="{{store url="ryan-loos"}}"><img class="fade-on-hover border marg10 img-dshadow" src="{{media url="wysiwyg/conequip/employees/ryan.jpg"}}" alt="Ryan Loos - CFO at ConEquip Parts" /></a><h6 class="above-heading ">Chief Financial Officer / Partner</h6><h3 class="blu">Ryan Loos</h3><p class="d-none d-sm-block">Ryan Loos is the CFO at ConEquip Parts. Many in WNY already know Ryan from hisaccounting practice. Ryan brings awealth of accounting and business knowledge to ConEquip.</p><a class="go" href="{{store url="ryan-loos"}}">More about Ryan</a> </div></div>')
 myHtml.append("<div>")
 myHtml.append('<div class="col-12 col-sm-6"><h2 class="section-title pt-5">Parts Specialists</h2><hr /></div>')
 myHtml.append('<div class="row ctr pt-5">')
@@ -61,13 +61,13 @@ for person in allData:
     if counter % 6 == 0 and counter != 0:
         myHtml.append('</div><div class="row ctr pt-5">')
     if person['department_id'][0] == 2 and person['image_256']:
-        myHtml.append('<div class="pb-3 col-6 col-sm-4 col-md-3 col-lg-2 filter bunarske">')
+        myHtml.append(f'<a href="{{{{store url="{slugify(person["name"])}/"}}}}">')
+        myHtml.append(f'<div class="pb-3 col-6 col-sm-4 col-md-3 col-lg-2 filter bunarske">')
         myHtml.append(f'<img class="fade-on-hover border marg10" src="{{{{media url="wysiwyg/conequip/employees/2022/{person["name"].replace(" ", "-").lower()}.jpg"}}}}" alt="{person["name"]} of Conequip" />')
         myHtml.append(f'<h6 class="above-heading">{person["job_title"]}</h6>')
         myHtml.append(f'<h3 class="blu">{person["name"]}</h3>')
         myHtml.append(f'<a href="tel:{person["work_phone"]}">{person["work_phone"]}</a>')
-        myHtml.append(f'<a class="go" href="{{store url="{slugify(person["name"])}"}}">More about {person["name"]}</a>')
-        myHtml.append('</div>')
+        myHtml.append('</div></a>')
         counter += 1
 myHtml.append('</div>')
 
@@ -316,8 +316,8 @@ for idx, file in enumerate(mail_attachment):
         mimefile.add_header('Content-Disposition', "attachment; filename= %s" % mail_attachment_name[idx])
         mimemsg.attach(mimefile)
 
-connection = smtplib.SMTP(host='smtp.office365.com', port=587)
-connection.starttls()
-connection.login(email_username, email_password)
-connection.send_message(mimemsg)
-connection.quit()
+# connection = smtplib.SMTP(host='smtp.office365.com', port=587)
+# connection.starttls()
+# connection.login(email_username, email_password)
+# connection.send_message(mimemsg)
+# connection.quit()
